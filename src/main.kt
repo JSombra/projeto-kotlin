@@ -1,7 +1,24 @@
 fun main() {
-    testaExemplo()
-    testaCondicoes(1.0)
-    loopsDeRepeticao()
+    val ordem = OrdemDeServico()
+    ordem.nome = "Jefferson"
+    println(ordem.nome)
+    println(ordem.codigoDoProduto)
+    println(ordem.valorAPagar)
+
+    val ordem2 = OrdemDeServico()
+    ordem2.nome = "Raquel"
+    println(ordem2.nome)
+    println(ordem2.codigoDoProduto)
+    println(ordem2.valorAPagar)
+}
+
+class OrdemDeServico{
+    var nome = ""
+    var codigoCliente = 1
+    var idade = (18..80).random()
+    var codigoDoProduto = (1..4).random()
+    var valorAPagar = 0
+
 }
 
 fun testaCondicoes(saldo: Double) {
@@ -12,8 +29,8 @@ fun testaCondicoes(saldo: Double) {
     }
 }
 
-fun testaExemplo(){
-    loop@for (i in 1..100) {
+fun testaExemplo() {
+    loop@ for (i in 1..100) {
         println("i $i")
         for (j in 1..100) {
             println("j $j")
@@ -22,41 +39,39 @@ fun testaExemplo(){
     }
 }
 
-fun loopsDeRepeticao(){
-    for (i in 1..5) {
+fun loopsDeRepeticao() {
+    for (i in 10 downTo 1 step 2) {
         val nome = "Jefferson $i"
         val codigoCliente = 120 + i
-        var saldo = 0.0 + i
+        var idade = (18..80).random()
+        var codigoDoProduto = (1..4).random()
+        var valorAPagar = 0
 
-        println("Bem vindo $nome")
         println("O seu codigo de cliente e $codigoCliente")
-        println("Seu saldo e $saldo")
-        println("Titular da conta $nome")
-        println("")
-    }
-
-    for (i in 10 downTo 1) { // com o downTo, ele faz a mesma coisa que o for comentado acima, porém no sentido oposto, do 10 até o 1
-        val nome = "Jefferson $i"
-        val codigoCliente = 120 + i
-        var saldo = 0.0 + i
-
         println("Bem vindo $nome")
-        println("O seu codigo de cliente e $codigoCliente")
-        println("Seu saldo e $saldo")
-        println("Titular da conta $nome")
+        println("Sua idade e $idade")
+        when (codigoDoProduto) {
+            1 -> {
+                println("Produto Selecionado: Celular")
+                valorAPagar = 4500
+                println("Valor a ser pago: R$$valorAPagar")
+            }
+            2 -> {
+                println("Produto Selecionado: Tablet")
+                valorAPagar = 2200
+                println("Valor a ser pago: R$$valorAPagar")
+            }
+            3 -> {
+                println("Produto Selecionado: Notebook")
+                valorAPagar = 8000
+                println("Valor a ser pago: R$$valorAPagar")
+            }
+            4 -> {
+                println("Produto Selecionado: Monitor")
+                valorAPagar = 1000
+                println("Valor a ser pago: R$$valorAPagar")
+            }
+        }
         println("")
-    }
-    var i = 0
-    while (i <= 10){
-        val nome = "Jefferson $i"
-        val codigoCliente = 120 + i
-        var saldo = 0.0 + i
-
-        println("Bem vindo $nome")
-        println("O seu codigo de cliente e $codigoCliente")
-        println("Seu saldo e $saldo")
-        println("Titular da conta $nome")
-        println("")
-        i++ //no while, precisa incrementar o i no final do bloco
     }
 }
