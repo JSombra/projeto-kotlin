@@ -2,14 +2,16 @@ fun main() {
     testaCopiasEReferencias()
 }
 
-class OrdemDeServico() {
-    var nome = ""
-    var codigoCliente = 1
-    var idade = (18..80).random()
+class OrdemDeServico(
+    var nome: String,
+    val codigoCliente: Int,
+    var idade: Int,
+    var valorEmConta: Double,
+) {
     var codigoDoProduto = (0..3).random()
-    var valorEmConta = 0.0
     var valorAPagar = 0
     var senha = "0000"
+        private set
 
 
     fun produtoReferenteAoCodigo(codigoDoProduto: Int, valorEmConta: Double) {
@@ -19,7 +21,7 @@ class OrdemDeServico() {
 
         var produtoSelecionado = produto[codigoDoProduto]
         var valorProdutoSelecionado = valorProduto[codigoDoProduto]
-        if (valorEmConta >= valorProduto[codigoDoProduto]){
+        if (valorEmConta >= valorProduto[codigoDoProduto]) {
             println("Produto pode ser comprado. Valor em conta e suficiente")
         } else {
             println("Nao possui valor para comprar o produto.")
@@ -42,35 +44,21 @@ class OrdemDeServico() {
 }
 
 fun testaCopiasEReferencias() {
-    val ordem = OrdemDeServico()
-    ordem.nome = "Jefferson"
-    ordem.idade = 22
-    ordem.codigoCliente = 1
-    ordem.valorEmConta = 900.0
-
-
-    val ordem2 = OrdemDeServico()
-    ordem2.nome = "Raquel"
-    ordem2.idade = 24
-    ordem2.codigoCliente = 2
-    ordem2.valorEmConta = 3000.0
+    val ordem = OrdemDeServico(nome = "Jefferson", idade = 22, valorEmConta = 1000.0, codigoCliente = 1) // passando os parâmetros por labels
+    val ordem2 = OrdemDeServico("Raquel", 2, 24, 700.0) //Passando os parâmetros para o construtor utilizando a ordem definida nele
 
 
     println(ordem.nome)
     println(ordem.idade)
     println(ordem.codigoCliente)
     ordem.produtoReferenteAoCodigo(ordem.codigoDoProduto, ordem.valorEmConta)
-    println("-----------")
     ordem.alteraSenha("0001")
-    println("-----------")
 
     println(ordem2.nome)
     println(ordem2.idade)
     println(ordem2.codigoCliente)
     ordem2.produtoReferenteAoCodigo(ordem2.codigoDoProduto, ordem2.valorEmConta)
-    println("-----------")
     ordem2.alteraSenha("0002")
-    println("-----------")
 }
 
 fun testaExemplo() {
