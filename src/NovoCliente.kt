@@ -7,9 +7,9 @@ open class NovoCliente(
     val email: String,
     var senha: Int
 ) {
-    open var codigoDoProduto = (0..3).random()
+    var codigoDoProduto = (0..3).random()
 
-    fun alteraSenha(novaSenha: Int) {
+    fun alteraSenha(novaSenha: Int): Unit {
         if (novaSenha == this.senha) {
             println("A nova senha cadastrada, e igual a senha padrao. Favor inserir uma senha diferente")
         } else {
@@ -18,7 +18,7 @@ open class NovoCliente(
         }
     }
 
-    fun autentica(senhaDigitada: Int) {
+    fun autentica(senhaDigitada: Int): Unit {
         if (senhaDigitada == this.senha){
             println("-------------------")
             println("Cliente Autenticado")
