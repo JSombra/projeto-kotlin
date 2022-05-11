@@ -9,6 +9,7 @@ open class NovoCliente(
 ) {
     var codigoDoProduto = (0..3).random()
 
+
     fun alteraSenha(novaSenha: Int): Unit {
         if (novaSenha == this.senha) {
             println("A nova senha cadastrada, e igual a senha padrao. Favor inserir uma senha diferente")
@@ -18,15 +19,10 @@ open class NovoCliente(
         }
     }
 
-    fun autentica(senhaDigitada: Int): Unit {
+    fun autentica(senhaDigitada: Int): String {
         if (senhaDigitada == this.senha){
-            println("-------------------")
-            println("Cliente Autenticado")
-            println("-------------------")
-        } else {
-            println("-------------------------")
-            println("Senha digitada incorreta.")
-            println("-------------------------")
+            return "Autenticado"
         }
+        return "Senha Incorreta"
     }
 }

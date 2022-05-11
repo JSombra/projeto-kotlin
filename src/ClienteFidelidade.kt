@@ -5,7 +5,7 @@ class ClienteFidelidade(
      codigoDoCliente: Int,
      valorEmConta: Double,
      email: String,
-     senha: Int
+     senha: Int,
 ): NovoCliente(nome = nome, cpf = cpf, idade = idade, codigoDoCliente = codigoDoCliente, valorEmConta = valorEmConta, email = email, senha = senha) {
-
+     var fidelidade = (0..10).random()
 }

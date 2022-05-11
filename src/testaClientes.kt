@@ -22,21 +22,24 @@ fun testaClientes() {
     val ordemF = OrdemDeServicoFidelidade(fidelidade)
 
 
-    cliente.codigoDoProduto = (0..3).random()
     println(cliente.nome)
     println(cliente.cpf)
     println(cliente.email)
     cliente.alteraSenha(5512)
+    println("---------------------")
     println(cliente.autentica(5512))
+    println("---------------------")
     println(ordem.produtoReferenteAoCodigo(cliente.codigoDoProduto, cliente.valorEmConta))
 
-    fidelidade.codigoDoProduto = (0..3).random()
     println(fidelidade.nome)
     println(fidelidade.cpf)
     println(fidelidade.email)
     fidelidade.alteraSenha(1111)
+    println("---------------------")
     println(fidelidade.autentica(2222))
-    println(ordemF.produtoReferenteAoCodigoFidelidade(fidelidade.codigoDoProduto, fidelidade.valorEmConta))
+    println("---------------------")
+    println(ordemF.produtoReferenteAoCodigoFidelidade(fidelidade.codigoDoProduto, fidelidade.valorEmConta, fidelidade.fidelidade))
+    println("Fidelidade: ${fidelidade.fidelidade}")
 
 
 

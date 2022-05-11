@@ -1,8 +1,7 @@
-import java.io.Serializable
 open class OrdemDeServico(
     val cliente: NovoCliente,
 ) {
-    fun produtoReferenteAoCodigo(codigoDoProduto: Int, valorEmConta: Double): Unit{
+    fun produtoReferenteAoCodigo(codigoDoProduto: Int, valorEmConta: Double){
 
         val produto = arrayListOf<String>("Notebook", "Tablet", "Celular", "Monitor")
         val valorProduto = arrayListOf<Int>(5000, 2000, 6000, 900)
@@ -13,6 +12,7 @@ open class OrdemDeServico(
             println("Produto pode ser comprado. Valor em conta e suficiente")
         } else {
             println("Nao possui valor para comprar o produto.")
+            println("Valor em conta R$ $valorEmConta")
         }
 
         println("------------------")
